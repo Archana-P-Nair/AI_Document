@@ -42,7 +42,7 @@ class Section(Base):
     content = Column(Text, nullable=True)
     
     # section_order is required by the DB
-    section_order = Column(Integer, nullable=False, default=0)
+    # section_order = Column(Integer, nullable=False, default=0)
     
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
