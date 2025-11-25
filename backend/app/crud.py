@@ -140,12 +140,7 @@ def create_section(db: Session, project_id: int, title: str):
         db.commit()
         db.refresh(db_section)
         return db_section
-    except SQLAlchemyError as e:
-        print(f"Error creating section: {e}")
-        db.rollback()
-        return None
-    except Exception as e:
-        print(f"Unexpected error creating section: {e}")
+    except SQLAlchemyError:
         db.rollback()
         return None
 
