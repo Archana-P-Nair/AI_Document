@@ -129,12 +129,12 @@ def delete_project(db: Session, project_id: int, user_id: int):
         return False
 
 # Section CRUD - FIXED VERSION (without order parameter)
-def create_section(db: Session, project_id: int, title: str, section_order: int = 0):
+def create_section(db: Session, project_id: int, title: str):
     try:
         db_section = models.Section(
             project_id=project_id,
-            title=title,
-            section_order=section_order
+            title=title
+            # section_order=section_order
         )
         db.add(db_section)
         db.commit()
