@@ -133,7 +133,6 @@ def generate_all_content(
     if project.structure and 'sections' in project.structure:
         existing_sections = len(project.sections)
         sections_to_create = project.structure['sections']
-        print(f"Existing sections: {existing_sections}, Sections to create: {len(sections_to_create)}")
         
         # Create sections if not already created
         if existing_sections == 0:
@@ -143,12 +142,8 @@ def generate_all_content(
             
             # Refresh project
             db.refresh(project)
-            print(f"Sections created. Total sections: {len(project.sections)}")
-    else:
-        print("Project structure missing or no sections defined")
     
     # Generate content for each section
-    print(f"Starting content generation for {len(project.sections)} sections")
     results = []
     for section in project.sections:
         if not section.content:  # Only generate if no content exists
