@@ -41,8 +41,8 @@ class Section(Base):
     title = Column(String, nullable=False)
     content = Column(Text, nullable=True)
     
-    # TEMPORARILY REMOVED — your production DB doesn't have this column yet
-    # section_order = Column(Integer, nullable=False, default=0)
+    # section_order is required by the DB
+    section_order = Column(Integer, nullable=False, default=0)
     
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
