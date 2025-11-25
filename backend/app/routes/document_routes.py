@@ -137,8 +137,8 @@ def generate_all_content(
         # Create sections if not already created
         if existing_sections == 0:
             for idx, section_title in enumerate(sections_to_create):
-                # FIXED: Removed the 'order=idx' parameter
-                crud.create_section(db, project_id=project.id, title=section_title)
+                # Pass section_order (idx) to match DB schema
+                crud.create_section(db, project_id=project.id, title=section_title, section_order=idx)
             
             # Refresh project
             db.refresh(project)
